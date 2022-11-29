@@ -13,7 +13,7 @@
 
 Atelier e-commerce site review service part of 3 services required to run Atelier site. Complete redesign of existing backend after increase in traffic. Scalability, latency, and uptime were primary considerations. Service provides functionality for the product reviewing system consisting of reviews for 100,000+ products.
 
-This is a copy of the service in the organizations repo located at: [Organization Repo](https://github.com/RFC2209-CapFalcon/review-service-cameron)
+This is a copy of the service in the organizations repo located at: [Organization Repository](https://github.com/RFC2209-CapFalcon/review-service-cameron)
 
 ## Technical Overview
 
