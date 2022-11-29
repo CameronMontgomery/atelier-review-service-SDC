@@ -11,7 +11,9 @@
 
 ## Description
 
-Atelier e-commerce site review service. Complete redesign of existing backend after increase in traffic. Scalability, latency, and uptime were primary considerations. Service provides functionality for the product reviewing system consisting of reviews for 100,000+ products.
+Atelier e-commerce site review service part of 3 services required to run Atelier site. Complete redesign of existing backend after increase in traffic. Scalability, latency, and uptime were primary considerations. Service provides functionality for the product reviewing system consisting of reviews for 100,000+ products.
+
+This is a copy of the service in the organizations repo located at: [Organization Repo](https://github.com/RFC2209-CapFalcon/review-service-cameron)
 
 ## Technical Overview
 
@@ -127,14 +129,14 @@ SELECT SETVAL((SELECT PG_GET_SERIAL_SEQUENCE('"Foo"', 'Foo_id')),
 
 ## Creating Table Indexes
 
-Indexes are neccisary to ensure the system runs properly if indexes are not set expect increased response times of 99.5% and likely system crash at at any scale.
+Indexes are necessary to ensure the system runs properly if indexes are not set expect increased response times of 99.5% and likely system crash at at any scale.
 ```
-	 table		  	column
-	-------		       --------
-	reviews		      product_id
-     review_photos            product_id
- characteristic_reviews	   characteristic_id
-    characteristics           Product_id
+       table                      column
+      --------                   ---------
+      reviews                   product_id
+    review_photos               product_id
+ characteristic_reviews	     characteristic_id
+    characteristics             product_id
 ```
 
 ## Installing Dependencies
