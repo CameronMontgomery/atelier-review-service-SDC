@@ -1,11 +1,4 @@
-# Reviews Service - Software Design Capstone
-
-Group Hack Reactor SDC project.
-
-> ### Group members<br>
-> <br>
-> <br>
->  <br>
+# Atelier Review Service
 
 ## Table of Contents
 
@@ -14,17 +7,15 @@ Group Hack Reactor SDC project.
 3. [Usage](#usage)
 4. [Requirements](#requirements)
 5. [Install and Set-up Postgres](#installation-and-setup-of-postgres)
-5. [Development](#development)
-6. [Production](#production)
-7. [Testing](#testing)
+5. [Development Enviroment](#development)
 
 ## Description
 
-
+Atelier e-commerce site review service. Complete redesign of existing backend after increase in traffic. Scalability, latency, and uptime were primary considerations. Service provides functionality for the product reviewing system consisting of reviews for 100,000+ products.
 
 ## Technical Overview
 
-
+Service is built with Node.js, Express, and Postgres. Local testing was performed with Jest, Supertest, and Artillery. Service was deployed and integrated using AWS EC2 instances and used NGINX for load balencing and spreading over multiple regions.
 
 ## Usage
 In order to run the project locally please read [Requirements](#requirements) section for instructions setting up a local .env and for installing dependencies. Find further instructions for setting up the project for development or production in the [Development](#development) and [Production](#production) sections.
@@ -35,6 +26,7 @@ Node.js - version 16.0+
 Postgres - version 14+
 
 ## Installation and Setup of Postgres
+
 If on MacOS, open up terminal and install `postgrsql` with `brew`
 ```
 brew install postgresql
@@ -49,6 +41,7 @@ brew services stop postgresql
 ```
 
 ## Creating Postgres Role
+
 As the default configuration of Postgres is, a user called postgres is made with full superadmin access to the entire PostgreSQL instance running on your OS.
 ```
 $ sudo -u postgres psql
@@ -65,6 +58,7 @@ postgres=# GRANT pg_read_server_files TO <name>;
 ```
 
 ## Granting Permissions
+
 It is possible that tables may not allow access to the user that you wish. One example is if the tables were created by a superuser. If you run into this you can grant permissions by logging into psql client in the terminal as a superuser. When logged in as a superuser you should see a postgres=#, # denotes superuser. Then run:
 ```
 GRANT permission_type ON table_name | ALL TO role_name;
@@ -81,9 +75,11 @@ TO user;
 Important permissions to have to import/export data are pg_read_server_files and pg_write_server_files
 
 ## Configuring .env
+
 The service requires configuring environment variables to be configured. A example is provided in config.env you will need to provide the database user (with create database permissions), and password. The other variables are provided with default values for running on your local machine.
 
 ## Create Database
+
 Example uses the default postgres superuser, it is recommended you use a different user with the noted permissions, see Creating Postgres Role for more info.
 
 ```
@@ -97,6 +93,7 @@ npm run create-tables
 This will create unpopulated databases tables
 
 ## Seed Database
+
 It is important to not make the tables from a superuser account as it will lock other users from accessing the tables without express permissions.
 ```
 npm run seed-db
@@ -129,19 +126,25 @@ SELECT SETVAL((SELECT PG_GET_SERIAL_SEQUENCE('"Foo"', 'Foo_id')),
 ```
 
 ## Creating Table Indexes
+
 Indexes are neccisary to ensure the system runs properly if indexes are not set expect increased response times of 99.5% and likely system crash at at any scale.
-
-To create dependencies run:
 ```
-
+	 table		  	column
+	-------		       --------
+	reviews		      product_id
+     review_photos            product_id
+ characteristic_reviews	   characteristic_id
+    characteristics           Product_id
 ```
 
 ## Installing Dependencies
+
 From within the root directory:
 > 1. Run ```npm install``` to install all required dependencies
 
 
 ## Development
+
 ### Local Testing
 
 #### Load Testing with Artillery
@@ -153,11 +156,4 @@ npm run test-artillery
 ```
 
 Output will be to the console. You can view artillery.io for more output options
-
-## Production
-
-Creating production build:
-
-
-## Testing
 
