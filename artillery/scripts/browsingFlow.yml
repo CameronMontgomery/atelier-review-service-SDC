@@ -1,0 +1,31 @@
+config:
+  target: "http://localhost:8000"
+  phases:
+    - duration: 60
+      arrivalRate: 20
+      name: "Low volume"
+    - duration: 240
+      arrivalRate: 20
+      rampTo: 100
+      name: "Medium Volume"
+    - duration: 300
+      arrivalRate: 100
+      name: "Sustained Volume"
+
+scenarios:
+  - name: "User Flow: Browsing products"
+    flow:
+      - get:
+          url: "/reviews/meta?product_id=5"
+      - get:
+          url: "/reviews?product_id=5"
+      - think: 3
+      - get:
+          url: "/reviews/meta?product_id=14"
+      - get:
+          url: "/reviews?product_id=14"
+      - think: 2
+      - get:
+          url: "/reviews/meta?product_id=25"
+      - get:
+          url: "/reviews?product_id=25"
