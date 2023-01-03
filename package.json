@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tribalash/atelier-review-service-SDC"
+    "url": "git+https://github.com/CameronMontgomery/atelier-review-service-SDC"
   },
   "keywords": [
     "SDC",
@@ -27,9 +27,9 @@
   "author": "JCMontgomery",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Tribalash/atelier-review-service-SDC/issues"
+    "url": "https://github.com/CameronMontgomery/atelier-review-service-SDC/issues"
   },
-  "homepage": "https://github.com/Tribalash/atelier-review-service-SDC#readme",
+  "homepage": "https://github.com/CameronMontgomery/atelier-review-service-SDC#readme",
   "dependencies": {
     "axios": "^1.1.3",
     "dotenv": "^16.0.3",
